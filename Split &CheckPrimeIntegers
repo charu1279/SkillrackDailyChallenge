@@ -1,0 +1,82 @@
+/*The program must accept an integer N as the input. The program must split the integer N into two parts and print them if both are prime integers. 
+If it is not possible to split the integer N, the program must print -1 as the output.
+
+Boundary Condition(s):
+10 <= N <= 10^8
+
+Input Format:
+The first line contains N.
+
+Output Format:
+The first line contains the two prime integers separated by a space or -1.
+
+Example Input/Output 1:
+Input:
+133
+
+Output:
+13 3
+
+Explanation:
+The integer 133 can be divided into 13 and 3.
+Here 13 and 3 are prime integers, so they are printed as the output.
+
+Example Input/Output 2:
+Input:
+5814
+
+Output:
+-1
+
+Example Input/Output 3:
+Input:
+7181
+
+Output:
+7 181
+*/
+
+#include<stdio.h>
+#include <stdlib.h>
+#include<math.h>
+int isprime(int n)
+{
+    int i;
+    if(n==0 || n==1)
+        return(0);
+    if(n==2 || n==3)
+        return(1);
+    for(i=2;i<=sqrt(n)+1;i++)
+        if(n%i==0)
+            return(0);
+    return(1);
+}
+int main()
+{
+    int f=1,a,b,c,j=1;
+    scanf("%d",&a);
+    c=a;
+    while(c>0)
+    {
+        j*=10;
+        c/=10;
+    }
+    j/=10;
+    c=a;
+    while(j!=1)
+    {
+        b=a%j;
+        c=a/j;
+       
+        if(c>0 && isprime(b) && isprime(c))
+        {
+            printf("%d %d",c,b);
+            f=0;
+            break;
+        }
+        j/=10;
+    }
+    if(f)
+        printf("-1");
+
+}
