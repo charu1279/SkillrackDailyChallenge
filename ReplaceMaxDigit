@@ -1,0 +1,49 @@
+/*The program must replace all the occurence of the max digit
+in x with the max digit in y.the program must print the sum
+of x and y.
+
+Example:
+input:1878 2020
+output:3292
+Explanation:x=1878 y=2020 max occ in x is 8 and max occ in y is
+            2 so 8 is replaced by 2 x=1272 and y=2020 then add
+            two integers.
+input:1111 144
+output:4588
+*/
+#include <stdio.h>
+
+int main()
+{
+   int x,y,r,max=0,max1=0,a1[100],a2[100],l=0,m=0,i;
+   scanf("%d %d",&x,&y);
+   while(x!=0){
+       r=x%10;
+       a1[l++]=r;
+       if(r>max){
+           max=r;
+       }
+       x=x/10;
+   }
+   int z=y;
+   while(y!=0){
+       r=y%10;
+       a2[m++]=r;
+       if(r>max1){
+           max1=r;
+       }
+       y=y/10;
+   }
+   int result=0;
+   for(i=l-1;i>=0;i--){
+       if(a1[i]==max){
+           a1[i]=max1;
+           result=result*10+a1[i];
+       }
+       else{
+           result=result*10+a1[i];
+       }
+   }
+   printf("%d",result+z);
+   
+}
