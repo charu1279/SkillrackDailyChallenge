@@ -1,0 +1,70 @@
+The Program must accept a list of integers that have integers ranging from 1 to n but an integer in the list
+is repeated,and missing integer in the list.The program must print the repeated integer and the missing
+integer between 1 to n.
+
+Example:
+Input: 3 1 2 5 3
+Output: 3 4
+Explanation: The Given Integers are 3 1 2 5 3
+             Largest Integer is 5 so N=5;
+             Repeated Integer btn 1 to 5 is 3
+             Missing Integer btn  1 to 5 is 4
+             So the output is 3 4
+             
+Input: 9 3 4 5 6 8 2 5 1 10
+Output: 5 7
+
+Input:14 15 8 9 2 1 7 3 2 4 5 6 11 12 13
+Output:2 10
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int MissingInteger(int b[],int count){
+    int i,tot;
+    tot=(count+1)*(count+2)/2;
+    for(i=0;i<count;i++){
+        tot-=b[i];
+    }
+    return tot;
+}
+int main()
+{
+    int a[1000],len=0,i,max=0,j,k;
+    while(scanf("%d ",&a[len])==1){
+        len++;
+    }
+    for(i=0;i<len;i++){
+        for(j=i+1;j<len;j++){
+            if(a[i]==a[j]){
+                printf("%d ",a[j]);
+            }
+        }
+    }
+    int count=0,b[100];
+    for(i=0;i<len;i++){
+        for(j=0;j<count;j++){
+            if(a[i]==b[j]){
+                break;
+            }
+        }
+        if(j==count){
+            b[count]=a[i];
+            count++;
+        }
+    }
+    for(i=0;i<count;i++){
+        for(j=i+1;j<count;j++){
+            if(b[i]>b[j]){
+                int temp=b[i];
+                b[i]=b[j];
+                b[j]=temp;
+            }
+        }
+    }
+    printf("%d ",MissingInteger(b,count));
+    
+
+
+}
