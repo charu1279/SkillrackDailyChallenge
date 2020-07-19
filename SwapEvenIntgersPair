@@ -1,0 +1,66 @@
+/*The program must accept N integers as the input. The program swap every two even integers among the N integers. Then the program must 
+print the N modified integers as the output. If the number of even integers is odd, the last even integer will remain the same as it has no pair to swap.
+
+Boundary Condition(s):
+2 <= N <= 1000
+1 <= Each integer value <= 10^5
+
+Input Format:
+The first line contains N.
+The second line contains N integers separated by a space.
+
+Output Format:
+The first line contains the N modified integers separated by a space.
+
+Example Input/Output 1:
+Input:
+7
+22 43 56 51 68 50 28
+
+Output:
+56 43 22 51 50 68 28
+
+Explanation:
+There are two even integer pairs in the given integers.
+The first even integer pair is 22 and 56. After swapping, the integers become 56 43 22 51 68 50 28.
+The second even integer pair is 68 and 50. After swapping, the integers become 56 43 22 51 50 68 28.
+Hence the output is 56 43 22 51 50 68 28
+
+Example Input/Output 2:
+Input:
+6
+2 8 3 12 98 56
+
+Output:
+8 2 3 98 12 56
+*/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[100000],i,j=0,c=0;
+    for(i=0;i<n;i++){
+        scanf("%d ",&a[i]);
+    }
+    for(i=0;i<n;i++){
+        if(a[i]%2==0){
+            c++;
+            if(c==2){
+                int t=a[j];
+                a[j]=a[i];
+                a[i]=t;
+                c=0;
+            }
+            j=i;
+        }
+    }
+ 
+    for(i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+
+}
