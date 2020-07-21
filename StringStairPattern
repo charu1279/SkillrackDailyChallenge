@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char s[100];
+    scanf("%s",s);
+    int i,j,l=strlen(s),k;
+    for(i=0;i<l;i++){
+        for(j=0;j<((l-i)-1);j++){
+            printf("-");
+        }
+        for(k=0;k<(i+1);k++){
+            printf("%c",s[k]);
+        }
+        printf("\n");
+    }
+    for(i=0;i<l-1;i++){
+        for(j=i+1;j<l;j++){
+            printf("%c",s[j]);
+        }
+        printf("\n");
+    }
+
+
+}
