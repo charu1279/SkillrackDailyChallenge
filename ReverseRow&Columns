@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int r,c,i,j,l=0;
+    scanf("%d %d",&r,&c);
+    char ch;
+    int matrix[r][c];
+    for(i=0;i<r;i++){
+        for(j=0;j<c;j++){
+            scanf("%d ",&matrix[i][j]);
+        }
+    }
+    scanf("%c",&ch);
+    if(ch=='D'||ch=='d'){
+        for(i=0;i<r;i++){
+            int k=0;
+            for(j=0;j<c;j++){
+                printf("%d ",matrix[r-1][k]);
+                k++;
+            }
+            printf("\n");
+        }
+    }
+    else if(ch=='u'||ch=='U'){
+        for(i=0;i<r;i++){
+            for(j=0;j<c;j++){
+                printf("%d ",matrix[0][j]);
+            }
+            printf("\n");
+        }
+    }
+    else if(ch=='r'||ch=='R'){
+        for(j=0;j<r;j++){
+            for(i=0;i<c;i++){
+                printf("%d ",matrix[j][c-1]);
+            }
+            l++;
+            printf("\n");
+        }
+    }
+    else if(ch=='l'|| ch=='L'){
+        l=0;
+        for(j=0;j<r;j++){
+            for(i=0;i<c;i++){
+                printf("%d ",matrix[l][0]);
+            }
+            l++;
+            printf("\n");
+        }
+    }
+    else{
+        for(i=0;i<r;i++){
+            for(j=0;j<c;j++){
+                printf("%d ",matrix[i][j]);
+            }
+            printf("\n");
+        }
+    }
+
+
+}
