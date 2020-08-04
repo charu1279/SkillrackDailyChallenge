@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int x,y,i;
+    scanf("%d %d",&x,&y);
+    for(i=x;i<=y;i++){
+        int p=i,countofzero=0,r;
+        while(p!=0){
+            r=p%10;
+            if(r==0){
+                countofzero++;
+            }
+            p=p/10;
+        }
+        if(countofzero>=1){
+            printf("%d ",i);
+        }
+    }
+
+
+}
