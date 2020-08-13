@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,x,i,j;
+    scanf("%d %d",&n,&x);
+    int a[n],b[x],Index[n],Value[n],il=0,vl=0;
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<x;i++){
+        scanf("%d",&b[i]);
+    }
+    for(i=0;i<x;i++){
+        for(j=0;j<n;j++){
+            if(b[i]==a[j]){
+                Index[il++]=j;
+                Value[vl++]=a[j];
+            }
+        }
+    }
+    for(i=0;i<il;i++){
+        for(j=i+1;j<il;j++){
+            if(Index[i]>Index[j]){
+                int t=Index[i];
+                Index[i]=Index[j];
+                Index[j]=t;
+                int t1=Value[i];
+                Value[i]=Value[j];
+                Value[j]=t1;
+            }
+        }
+    }
+    for(i=0;i<vl;i++){
+        printf("%d ",Value[i]);
+    }
+
+    
+
+
+}
