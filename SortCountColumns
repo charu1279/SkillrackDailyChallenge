@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int r,c,i,j,count=0,totalSorted=0;
+    scanf("%d %d",&r,&c);
+    int matrix[r][c];
+    for(i=0;i<r;i++){
+        for(j=0;j<c;j++){
+            scanf("%d",&matrix[i][j]);
+        }
+    }
+    for(i=0;i<c;i++){
+        count=0;
+        for(j=0;j<r-1;j++){
+            //printf("%d %d\n",matrix[j][i],matrix[j+1][i]);
+            if(matrix[j][i]>=matrix[j+1][i]){
+                count++;
+            }
+        }
+        if(count==r-1){
+            totalSorted++;
+        }
+    }
+    printf("%d",totalSorted);
+
+}
+
+
+}
