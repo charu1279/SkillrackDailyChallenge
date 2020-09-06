@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,i,j,k,totalC=0;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            char s[20];
+            sprintf(s,"%d%d",a[i],a[j]);
+            int freq[10]={0},c=0,flag=0;
+            for(k=0;k<strlen(s);k++){
+                freq[s[k]-48]++;
+            }
+            for(k=0;k<10;k++){
+                if(freq[k]!=0)
+                c++;
+            }
+            if(c==10){
+                totalC++;
+            }
+        }
+    }
+    printf("%d",totalC);
+
+}
